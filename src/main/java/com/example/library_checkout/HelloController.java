@@ -1,14 +1,20 @@
 package com.example.library_checkout;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 
 public class HelloController {
-    @FXML
-    private Label welcomeText;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public Pagination pagination;
+    public ListView infoList;
+    public DatePicker calendar;
+    public ImageView bookImage;
+    public Button checkOutButton;
+    public Button checkInButton;
+
+    public void initialize() {
+
     }
 }
+

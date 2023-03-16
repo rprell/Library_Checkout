@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_checkout.HelloController">
    <children>
-      <Pagination maxPageIndicatorCount="5" pageCount="10" prefHeight="400.0" prefWidth="225.0" />
-      <ListView layoutX="475.0" prefHeight="400.0" prefWidth="225.0" />
-      <DatePicker layoutX="278.0" layoutY="45.0" prefHeight="25.0" prefWidth="161.0" />
-      <ImageView fitHeight="230.0" fitWidth="158.0" layoutX="36.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="299.0" layoutY="216.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="Check Out" />
-      <Button layoutX="296.0" layoutY="278.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="Check In" />
+      <Pagination fx:id="pagination" maxPageIndicatorCount="5" pageCount="10" prefHeight="400.0" prefWidth="225.0" />
+      <ListView fx:id="infoList" layoutX="475.0" prefHeight="400.0" prefWidth="225.0" />
+      <DatePicker fx:id="calendar" layoutX="278.0" layoutY="45.0" prefHeight="25.0" prefWidth="161.0" />
+      <ImageView fx:id="bookImage" fitHeight="230.0" fitWidth="158.0" layoutX="36.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="checkOutButton" layoutX="299.0" layoutY="216.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="Check Out" />
+      <Button fx:id="checkInButton" layoutX="296.0" layoutY="278.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="Check In" />
    </children>
 </Pane>
