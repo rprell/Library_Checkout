@@ -4,14 +4,17 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Pagination?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pagination prefHeight="400.0" prefWidth="225.0" />
-      <DatePicker layoutX="270.0" layoutY="14.0" prefHeight="25.0" prefWidth="161.0" />
+      <Pagination maxPageIndicatorCount="5" pageCount="10" prefHeight="400.0" prefWidth="225.0" />
       <ListView layoutX="475.0" prefHeight="400.0" prefWidth="225.0" />
-      <Button layoutX="83.0" layoutY="158.0" mnemonicParsing="false" text="Button" />
+      <DatePicker layoutX="278.0" layoutY="45.0" prefHeight="25.0" prefWidth="161.0" />
+      <ImageView fitHeight="230.0" fitWidth="158.0" layoutX="36.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="299.0" layoutY="216.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="Check Out" />
+      <Button layoutX="296.0" layoutY="278.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="Check In" />
    </children>
 </Pane>
