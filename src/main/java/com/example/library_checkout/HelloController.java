@@ -22,6 +22,7 @@ public class HelloController {
     public Button checkInButton;
 
     public void initialize() {
+        Books.readData();
         //restoreOrReadData();
 
     }
@@ -45,7 +46,7 @@ public class HelloController {
     //        in.close();
      //       fileIn.close();
     //    } catch (Exception exception) {
-     //       Books.signOut();
+     //       Books.readData();
      //   }
 
       //  ArrayList<BestSelling> temporaryList = (ArrayList<BestSelling>) Books.getAllBestSelling();

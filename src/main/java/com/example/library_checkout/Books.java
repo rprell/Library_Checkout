@@ -57,7 +57,7 @@ public class Books {
     public void setYear(int year) {this.year = year;}
 
 
-    public static void signOut() {
+    public static void readData() {
         Scanner sc = null;
         try {
             File text = new File("Books");
@@ -73,11 +73,6 @@ public class Books {
                 String genre = lineScanner.next();
                 int year = lineScanner.nextInt();
                 new Books(name,author,genre,year);
-
-                while(lineScanner.hasNext()) {
-                    String chunkoData = lineScanner.next();
-                    System.out.println(chunkoData);
-                }
 
             }
         } catch (FileNotFoundException e) {
