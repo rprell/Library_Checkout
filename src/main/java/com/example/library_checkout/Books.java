@@ -16,6 +16,7 @@ public class Books {
 
     public String Genre;
 
+    private Image cover;
     public int Year;
 
     public Image Image;
@@ -62,6 +63,7 @@ public class Books {
     public Image getImage() {return Image;}
 
     public void setImage(Image image) {Image = image;}
+
 
 
     public static void readData() {
