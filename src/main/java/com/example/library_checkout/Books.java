@@ -1,27 +1,31 @@
 package com.example.library_checkout;
 
+import javafx.scene.image.Image;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Books {
-    private static ArrayList<Books> allBooks = new ArrayList<>();
+    public static ArrayList<Books> allBooks = new ArrayList<>();
 
-    private String name;
+    public String Name;
 
-    private String author;
+    public String Author;
 
-    private String genre;
+    public String Genre;
 
-    private int year;
+    public int Year;
+
+    public Image Image;
 
 
     public Books(String name, String author, String genre, int year) {
-        this.name = name;
-        this.author = author;
-        this.genre = genre;
-        this.year = year;
+        this.Name = name;
+        this.Author = author;
+        this.Genre = genre;
+        this.Year = year;
     }
 
     public static ArrayList<Books> getAllBooks() {
@@ -32,29 +36,32 @@ public class Books {
         Books.allBooks = allBooks;
     }
 
-    public String getName() {return name;}
+    public String getName() {return Name;}
 
-    public void setBrand(String name) {this.name = name;}
+    public void setBrand(String name) {Name = name;}
 
     public String getAuthor() {
-        return author;
+        return Author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(String author) {Author = author;
     }
 
     public String getGenre() {
-        return genre;
+        return Genre;
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        Genre = genre;
     }
 
-    public int getYear() {return year;}
+    public int getYear() {return Year;}
 
-    public void setYear(int year) {this.year = year;}
+    public void setYear(int year) {Year = year;}
+
+    public Image getImage() {return Image;}
+
+    public void setImage(Image image) {Image = image;}
 
 
     public static void readData() {
@@ -72,6 +79,7 @@ public class Books {
                 String author = lineScanner.next();
                 String genre = lineScanner.next();
                 int year = lineScanner.nextInt();
+                //Image image = name+".jpg"
                 new Books(name,author,genre,year);
 
             }
