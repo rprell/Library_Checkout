@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class HelloController {
@@ -32,19 +33,22 @@ public class HelloController {
         Image image9 = new Image(new FileInputStream(new File("BookCovers/Peter_Rabbit_first_edition_1902a.jpg")));
         Image image10 = new Image(new FileInputStream(new File("BookCovers/Sofies_verden.jpg")));
 
+        ArrayList<Books> allBooks = Books.getAllBooks();
+        allBooks.get(0).setImage(image1);
+        allBooks.get(1).setImage(image2);
+        allBooks.get(2).setImage(image3);
+        allBooks.get(3).setImage(image4);
+        allBooks.get(4).setImage(image5);
+        allBooks.get(5).setImage(image6);
+        allBooks.get(6).setImage(image7);
+        allBooks.get(7).setImage(image8);
+        allBooks.get(8).setImage(image9);
+        allBooks.get(9).setImage(image10);
 
-        Books.add(image1);
-        bookImage.getImage().add("image1");
-        Books.add(image2);
-        bookImage.getImage().add("image2");
-        Books.add(image3);
-        bookImage.getImage().add("image3");
-        Books.add(image4);
-        bookImage.getImage().add("image4");
 
-        currentBook = 1;
-        bookImage.setImage(image1);
-        choosePicture.getSelectionModel().select(currentBook);
+        //currentBook = 1;
+        //bookImage.setImage(image1);
+      //  currentBook.getSelectionModel().select(currentBook);
     }
 
     //restoreOrReadData();
