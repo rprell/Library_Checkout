@@ -63,12 +63,12 @@ public class HelloController {
    // });
 
     public void nextButtonPressed() {
-        if (currentBook < Books.size()-1) {
+        if (currentBook < Books.getAllBooks().size()-1) {
             currentBook = currentBook + 1;
         } else {
             currentBook = 0;
         }
-        photoView.setImage(images.get(currentBook));
+        bookImage.setImage(Books.getAllBooks().get(currentBook).getImage());
         choosePicture.getSelectionModel().select(currentBook);
         pictureNumberLabel.setText("Picture #" + (currentBook+1) + " of " + images.size());
     }
