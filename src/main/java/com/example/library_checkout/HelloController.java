@@ -71,6 +71,7 @@ public class HelloController {
         bookImage.setImage(Books.getAllBooks().get(currentBook).getImage());
         choosePicture.getSelectionModel().select(currentBook);
         pictureNumberLabel.setText("Picture #" + (currentBook+1) + " of " + images.size());
+
     }
 
     public void saveData() throws Exception {
