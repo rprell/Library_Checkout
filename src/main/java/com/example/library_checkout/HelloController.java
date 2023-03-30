@@ -6,7 +6,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class HelloController {
@@ -21,9 +20,10 @@ public class HelloController {
 
     public void initialize() throws FileNotFoundException {
         Books.readData();
+        System.out.println(Books.getAllBooks());
 
-        Image image1 = new Image(new FileInputStream(new File("BookCovers/200px-To_Kill_a_Mockingbird_(first_edition_cover).jpg")));
-        Image image2 = new Image(new FileInputStream(new File("BookCovers/An_early_reprint_of_A_Message_to_Garcia_.jpg")));
+        Image image1 = new Image(new FileInputStream(new File("BookCovers/220px-To_Kill_a_Mockingbird_(first_edition_cover).jpg")));
+        Image image2 = new Image(new FileInputStream(new File("BookCovers/An_early_reprint_of__A_Message_to_Garcia_.jpg")));
         Image image3 = new Image(new FileInputStream(new File("BookCovers/AngelsAndDemons.jpg")));
         Image image4 = new Image(new FileInputStream(new File("BookCovers/Cosmos_book.jpg")));
         Image image5 = new Image(new FileInputStream(new File("BookCovers/Dollanganger01_FlowersInTheAttic.jpg")));
@@ -33,22 +33,36 @@ public class HelloController {
         Image image9 = new Image(new FileInputStream(new File("BookCovers/Peter_Rabbit_first_edition_1902a.jpg")));
         Image image10 = new Image(new FileInputStream(new File("BookCovers/Sofies_verden.jpg")));
 
-        ArrayList<Books> allBooks = Books.getAllBooks();
-        allBooks.get(0).setImage(image1);
-        allBooks.get(1).setImage(image2);
-        allBooks.get(2).setImage(image3);
-        allBooks.get(3).setImage(image4);
-        allBooks.get(4).setImage(image5);
-        allBooks.get(5).setImage(image6);
-        allBooks.get(6).setImage(image7);
-        allBooks.get(7).setImage(image8);
-        allBooks.get(8).setImage(image9);
-        allBooks.get(9).setImage(image10);
 
 
-        //currentBook = 1;
-        //bookImage.setImage(image1);
-      //  currentBook.getSelectionModel().select(currentBook);
+        Books.getAllBooks().get(0).setImage(image1);
+        Books.getAllBooks().get(1).setImage(image2);
+        Books.getAllBooks().get(2).setImage(image3);
+        Books.getAllBooks().get(3).setImage(image4);
+        Books.getAllBooks().get(4).setImage(image5);
+        Books.getAllBooks().get(5).setImage(image6);
+        Books.getAllBooks().get(6).setImage(image7);
+        Books.getAllBooks().get(7).setImage(image8);
+        Books.getAllBooks().get(8).setImage(image9);
+        Books.getAllBooks().get(9).setImage(image10);
+
+        bookImage.setImage(image1);
+        bookImage.setImage(image2);
+        bookImage.setImage(image3);
+        bookImage.setImage(image4);
+        bookImage.setImage(image5);
+        bookImage.setImage(image6);
+        bookImage.setImage(image7);
+        bookImage.setImage(image8);
+        bookImage.setImage(image9);
+        bookImage.setImage(image10);
+
+
+
+        currentBook = 1;
+        bookImage.setImage(image1);
+        //choosePicture.getSelectionModel().select(currentBook);
+
     }
 
     //restoreOrReadData();
@@ -63,15 +77,16 @@ public class HelloController {
    // });
 
     public void nextButtonPressed() {
-        if (currentBook < Books.getAllBooks().size()-1) {
+        /**
+        if (currentBook < Books.size()-1) {
             currentBook = currentBook + 1;
         } else {
             currentBook = 0;
         }
-        bookImage.setImage(Books.getAllBooks().get(currentBook).getImage());
+        photoView.setImage(images.get(currentBook));
         choosePicture.getSelectionModel().select(currentBook);
         pictureNumberLabel.setText("Picture #" + (currentBook+1) + " of " + images.size());
-
+         **/
     }
 
     public void saveData() throws Exception {

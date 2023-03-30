@@ -16,13 +16,13 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 700, 400);
         myController = fxmlLoader.getController();
 
-        stage.setTitle("Hello!");
+        stage.setTitle("Library Checkout");
         stage.setScene(scene);
         stage.show();
     }
 
     public void stop ()throws Exception{
-        myController.saveData();
+ //       myController.saveData();
     }
 
     public static void main(String[] args) {

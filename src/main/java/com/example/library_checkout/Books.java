@@ -27,6 +27,7 @@ public class Books {
         this.Author = author;
         this.Genre = genre;
         this.Year = year;
+        allBooks.add(this);
     }
 
     public static ArrayList<Books> getAllBooks() {
