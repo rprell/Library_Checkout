@@ -1,9 +1,11 @@
 package com.example.library_checkout;
 
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 
 import java.io.*;
 import java.lang.reflect.Array;
@@ -58,11 +60,20 @@ public class HelloController {
         bookImage.setImage(image9);
         bookImage.setImage(image10);
 
-
-
         currentBook = 1;
         bookImage.setImage(image3);
+        infoList.getItems().add(allBooks.get(0).getName());
+        infoList.getItems().add(allBooks.get(0).getAuthor());
+        infoList.getItems().add(allBooks.get(0).getGenre());
+        infoList.getItems().add(allBooks.get(0).getYear());
+
         //choosePicture.getSelectionModel().select(currentBook);
+        pagination.setPageFactory(new Callback<Integer, Node>() {
+            public Node call(Integer pageIndex) {
+                paginationClicked(pageIndex);
+                return bookImage;
+            }
+        });
 
     }
 
@@ -77,13 +88,9 @@ public class HelloController {
         //return new VBox(bookImage);
    // });
 
-    public void nextButtonPressed() {
-        if (currentBook < Books.getAllBooks().size()-1) {
-            currentBook = currentBook + 1;
-        } else {
-            currentBook = 0;
-        }
-        bookImage.setImage(Books.getAllBooks().get(currentBook).getImage());
+    public void paginationClicked(int selectedIndex) {
+        System.out.println(selectedIndex);
+        bookImage.setImage(Books.getAllBooks().get(selectedIndex).getImage());
        // choosePicture.getSelectionModel().select(currentBook);
        // pictureNumberLabel.setText("Picture #" + (currentBook+1) + " of " + images.size());
 
