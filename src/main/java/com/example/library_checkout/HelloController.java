@@ -25,20 +25,23 @@ public class HelloController {
         Books.readData();
         System.out.println(Books.getAllBooks());
 
-        //Image image1 = new Image(new FileInputStream(new File("BookCovers/200px-To_Kill_a_Mockingbird_(first_edition_cover).jpg")));
-        //Image image2 = new Image(new FileInputStream(new File("BookCovers/An_early_reprint_of_A_Message_to_Garcia_.jpg")));
-        Image image3 = new Image(new FileInputStream(new File("BookCovers/AngelsAndDemons.jpg")));
-        Image image4 = new Image(new FileInputStream(new File("BookCovers/Cosmos_book.jpg")));
-        Image image5 = new Image(new FileInputStream(new File("BookCovers/Dollanganger01_FlowersInTheAttic.jpg")));
-        Image image6 = new Image(new FileInputStream(new File("BookCovers/HungryCaterPillar.jpg")));
-        Image image7 = new Image(new FileInputStream(new File("BookCovers/Johnathan_Livingston_Seagull.jpg")));
-        Image image8 = new Image(new FileInputStream(new File("BookCovers/KaneAndAbel.jpg")));
-        Image image9 = new Image(new FileInputStream(new File("BookCovers/Peter_Rabbit_first_edition_1902a.jpg")));
-        Image image10 = new Image(new FileInputStream(new File("BookCovers/Sofies_verden.jpg")));
+        Image image1 = new Image(new FileInputStream(new File("BookCovers/Peter_Rabbit_first_edition_1902a.jpg")));
+        Image image2 = new Image(new FileInputStream(new File("BookCovers/Johnathan_Livingston_Seagull.jpg")));
+        Image image3 = new Image(new FileInputStream(new File("BookCovers/HungryCaterPillar.jpg")));
+        Image image4 = new Image(new FileInputStream(new File("BookCovers/An_early_reprint_of__A_Message_to_Garcia_.jpg")));
+        Image image5 = new Image(new FileInputStream(new File("BookCovers/220px-To_Kill_a_Mockingbird_(first_edition_cover).jpg")));
+        Image image6 = new Image(new FileInputStream(new File("BookCovers/Dollanganger01_FlowersInTheAttic.jpg")));
+        Image image7 = new Image(new FileInputStream(new File("BookCovers/Cosmos_book.jpg")));
+        Image image8 = new Image(new FileInputStream(new File("BookCovers/Sofies_verden.jpg")));
+        Image image9 = new Image(new FileInputStream(new File("BookCovers/AngelsAndDemons.jpg")));
+        Image image10 = new Image(new FileInputStream(new File("BookCovers/KaneAndAbel.jpg")));
+
+
+
 
         ArrayList<Books> allBooks = Books.getAllBooks();
-        allBooks.get(0).setImage(image3);
-        allBooks.get(1).setImage(image3);
+        allBooks.get(0).setImage(image1);
+        allBooks.get(1).setImage(image2);
         allBooks.get(2).setImage(image3);
         allBooks.get(3).setImage(image4);
         allBooks.get(4).setImage(image5);
@@ -49,8 +52,8 @@ public class HelloController {
         allBooks.get(9).setImage(image10);
 
 
-        bookImage.setImage(image3);
-        bookImage.setImage(image3);
+        bookImage.setImage(image1);
+        bookImage.setImage(image2);
         bookImage.setImage(image3);
         bookImage.setImage(image4);
         bookImage.setImage(image5);
@@ -60,8 +63,8 @@ public class HelloController {
         bookImage.setImage(image9);
         bookImage.setImage(image10);
 
-        currentBook = 1;
-        bookImage.setImage(image3);
+        currentBook = 0;
+        bookImage.setImage(image1);
         infoList.getItems().add(allBooks.get(0).getName());
         infoList.getItems().add(allBooks.get(0).getAuthor());
         infoList.getItems().add(allBooks.get(0).getGenre());
