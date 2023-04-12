@@ -23,8 +23,8 @@ public class HelloController {
         Books.readData();
         System.out.println(Books.getAllBooks());
 
-        Image image1 = new Image(new FileInputStream(new File("BookCovers/200px-To_Kill_a_Mockingbird_(first_edition_cover).jpg")));
-        Image image2 = new Image(new FileInputStream(new File("BookCovers/An_early_reprint_of_A_Message_to_Garcia_.jpg")));
+        //Image image1 = new Image(new FileInputStream(new File("BookCovers/200px-To_Kill_a_Mockingbird_(first_edition_cover).jpg")));
+        //Image image2 = new Image(new FileInputStream(new File("BookCovers/An_early_reprint_of_A_Message_to_Garcia_.jpg")));
         Image image3 = new Image(new FileInputStream(new File("BookCovers/AngelsAndDemons.jpg")));
         Image image4 = new Image(new FileInputStream(new File("BookCovers/Cosmos_book.jpg")));
         Image image5 = new Image(new FileInputStream(new File("BookCovers/Dollanganger01_FlowersInTheAttic.jpg")));
@@ -35,8 +35,8 @@ public class HelloController {
         Image image10 = new Image(new FileInputStream(new File("BookCovers/Sofies_verden.jpg")));
 
         ArrayList<Books> allBooks = Books.getAllBooks();
-        allBooks.get(0).setImage(image1);
-        allBooks.get(1).setImage(image2);
+        allBooks.get(0).setImage(image3);
+        allBooks.get(1).setImage(image3);
         allBooks.get(2).setImage(image3);
         allBooks.get(3).setImage(image4);
         allBooks.get(4).setImage(image5);
@@ -47,8 +47,8 @@ public class HelloController {
         allBooks.get(9).setImage(image10);
 
 
-        bookImage.setImage(image1);
-        bookImage.setImage(image2);
+        bookImage.setImage(image3);
+        bookImage.setImage(image3);
         bookImage.setImage(image3);
         bookImage.setImage(image4);
         bookImage.setImage(image5);
@@ -61,7 +61,7 @@ public class HelloController {
 
 
         currentBook = 1;
-        bookImage.setImage(image1);
+        bookImage.setImage(image3);
         //choosePicture.getSelectionModel().select(currentBook);
 
     }
@@ -84,8 +84,8 @@ public class HelloController {
             currentBook = 0;
         }
         bookImage.setImage(Books.getAllBooks().get(currentBook).getImage());
-        choosePicture.getSelectionModel().select(currentBook);
-        pictureNumberLabel.setText("Picture #" + (currentBook+1) + " of " + images.size());
+       // choosePicture.getSelectionModel().select(currentBook);
+       // pictureNumberLabel.setText("Picture #" + (currentBook+1) + " of " + images.size());
 
     }
 
