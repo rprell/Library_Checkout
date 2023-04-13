@@ -94,7 +94,15 @@ public class HelloController {
     public void paginationClicked(int selectedIndex) {
         System.out.println(selectedIndex);
         bookImage.setImage(Books.getAllBooks().get(selectedIndex).getImage());
-       // choosePicture.getSelectionModel().select(currentBook);
+        infoList.getItems().clear();
+        ArrayList<Books> allBooks = Books.getAllBooks();
+        infoList.getItems().add(allBooks.get(selectedIndex).getName());
+        infoList.getItems().add(allBooks.get(selectedIndex).getAuthor());
+        infoList.getItems().add(allBooks.get(selectedIndex).getGenre());
+        infoList.getItems().add(allBooks.get(selectedIndex).getYear());
+
+
+        // choosePicture.getSelectionModel().select(currentBook);
        // pictureNumberLabel.setText("Picture #" + (currentBook+1) + " of " + images.size());
 
     }

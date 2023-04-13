@@ -38,9 +38,11 @@ public class Books {
         Books.allBooks = allBooks;
     }
 
-    public String getName() {return Name;}
+    public String getName() {
+        return Name;
+    }
 
-    public void setBrand(String name) {Name = name;}
+    public void setName(String name) {Name = name;}
 
     public String getAuthor() {
         return Author;
