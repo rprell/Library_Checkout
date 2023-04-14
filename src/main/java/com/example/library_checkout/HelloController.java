@@ -105,6 +105,9 @@ public class HelloController {
         infoList.getItems().add(allBooks.get(selectedIndex).getAuthor());
         infoList.getItems().add(allBooks.get(selectedIndex).getGenre());
         infoList.getItems().add(allBooks.get(selectedIndex).getYear());
+        if (allBooks.get(selectedIndex).getCheckOut() != null) {
+            infoList.getItems().add(allBooks.get(selectedIndex).getCheckOut());
+        }
 
 
         // choosePicture.getSelectionModel().select(currentBook);
@@ -129,16 +132,18 @@ public class HelloController {
 
         out.close();
         fileOut.close();
+        System.out.println("Saved");
     }
     public void restoreOrReadData() {
         try {
-            FileInputStream fileIn = new FileInputStream("SavedCandyObjects");
+            FileInputStream fileIn = new FileInputStream("SavedBooks");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             Books.setAllBooks((ArrayList<Books>)in.readObject());
             in.close();
             fileIn.close();
         } catch (Exception exception) {
             Books.readData();
+
         }
 
         ArrayList<Books> temporaryList = (ArrayList<Books>) Books.getAllBooks();
