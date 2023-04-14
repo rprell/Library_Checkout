@@ -16,6 +16,7 @@ public class Books {
     public int Year;
     public Image Image;
     public String CheckOut;
+    public String CheckIn;
 
 
     public Books(String name, String author, String genre, int year) {
@@ -41,6 +42,14 @@ public class Books {
 
     public void setCheckOut(String checkOut) {
         CheckOut = checkOut;
+    }
+
+    public String getCheckIn() {
+        return CheckIn;
+    }
+
+    public void setCheckIn(String checkIn) {
+        CheckIn = checkIn;
     }
 
     public String getName() {

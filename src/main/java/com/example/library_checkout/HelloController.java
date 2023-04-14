@@ -120,6 +120,13 @@ public class HelloController {
         calendar.setValue(null);
         selectedBook = pagination.getCurrentPageIndex();
         Books.getAllBooks().get(selectedBook).setCheckOut(toDoDate.toString());
+       // pagination.getCurrentPageIndex()
+        //.setCheckOut(toDoDate);
+    }
+
+    public void CheckInButtonPressed() {
+        infoList.getItems().clear();
+        Books.getAllBooks().get(selectedBook).setCheckIn();
     }
 
 
