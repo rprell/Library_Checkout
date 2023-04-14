@@ -9,17 +9,13 @@ import java.util.Scanner;
 
 public class Books {
     public static ArrayList<Books> allBooks = new ArrayList<>();
-
     public String Name;
-
     public String Author;
-
     public String Genre;
-
     private Image cover;
     public int Year;
-
     public Image Image;
+    public String CheckOut;
 
 
     public Books(String name, String author, String genre, int year) {
@@ -30,12 +26,21 @@ public class Books {
         allBooks.add(this);
     }
 
+
     public static ArrayList<Books> getAllBooks() {
         return allBooks;
     }
 
-    public static void setAllBooks(ArrayList<Books> allBooks) {
+    public static void setAllBooks(int allBooks) {
         Books.allBooks = allBooks;
+    }
+
+    public String getCheckOut() {
+        return CheckOut;
+    }
+
+    public void setCheckOut(String checkOut) {
+        CheckOut = checkOut;
     }
 
     public String getName() {

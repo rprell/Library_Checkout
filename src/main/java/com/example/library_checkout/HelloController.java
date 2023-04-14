@@ -9,6 +9,7 @@ import javafx.util.Callback;
 
 import java.io.*;
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class HelloController {
@@ -20,6 +21,7 @@ public class HelloController {
     public Button checkOutButton;
     public Button checkInButton;
     int currentBook;
+    int selectedBook;
 
     public void initialize() throws FileNotFoundException {
         Books.readData();
@@ -104,8 +106,16 @@ public class HelloController {
 
         // choosePicture.getSelectionModel().select(currentBook);
        // pictureNumberLabel.setText("Picture #" + (currentBook+1) + " of " + images.size());
-
     }
+
+    public void CheckOutButtonPressed() {
+        LocalDate toDoDate = calendar.getValue();
+        infoList.getItems().add("Check Out" + " - " + toDoDate.toString());
+        calendar.setValue(null);
+        pagination.getCurrentPageIndex()
+        .setCheckOut(toDoDate);
+    }
+
 
     public void saveData() throws Exception {
         FileOutputStream fileOut = new FileOutputStream("SavedBooks");
