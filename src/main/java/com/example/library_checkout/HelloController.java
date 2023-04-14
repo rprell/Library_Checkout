@@ -1,5 +1,7 @@
 package com.example.library_checkout;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -24,6 +26,7 @@ public class HelloController {
     int selectedBook;
 
     public void initialize() throws FileNotFoundException {
+        restoreOrReadData();
         Books.readData();
         System.out.println(Books.getAllBooks());
 
@@ -112,8 +115,8 @@ public class HelloController {
         LocalDate toDoDate = calendar.getValue();
         infoList.getItems().add("Check Out" + " - " + toDoDate.toString());
         calendar.setValue(null);
-        pagination.getCurrentPageIndex()
-        .setCheckOut(toDoDate);
+        selectedBook = pagination.getCurrentPageIndex();
+        Books.getAllBooks().get(selectedBook).setCheckOut(toDoDate.toString());
     }
 
 
@@ -121,27 +124,26 @@ public class HelloController {
         FileOutputStream fileOut = new FileOutputStream("SavedBooks");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
-        // allTheTexts is my ListView. Save its ObservableList by turning it into an ArrayList.
         ArrayList<String> temporaryList = new ArrayList<>(infoList.getItems());
         out.writeObject(temporaryList);
 
         out.close();
         fileOut.close();
     }
-  //  public void restoreOrReadData() {
-   //     try {
-   //         FileInputStream fileIn = new FileInputStream("SavedCandyObjects");
-   //         ObjectInputStream in = new ObjectInputStream(fileIn);
-    //        Books.setAllBestSelling((ArrayList<BestSelling>)in.readObject());
-    //        in.close();
-     //       fileIn.close();
-    //    } catch (Exception exception) {
-     //       Books.readData();
-     //   }
+    public void restoreOrReadData() {
+        try {
+            FileInputStream fileIn = new FileInputStream("SavedCandyObjects");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            Books.setAllBooks((ArrayList<Books>)in.readObject());
+            in.close();
+            fileIn.close();
+        } catch (Exception exception) {
+            Books.readData();
+        }
 
-      //  ArrayList<BestSelling> temporaryList = (ArrayList<BestSelling>) Books.getAllBestSelling();
-      //  ObservableList temporaryObservableList = FXCollections.observableArrayList(temporaryList);
-      //  infoList.setItems(temporaryObservableList);
-   // }
+        ArrayList<Books> temporaryList = (ArrayList<Books>) Books.getAllBooks();
+        ObservableList temporaryObservableList = FXCollections.observableArrayList(temporaryList);
+        infoList.setItems(temporaryObservableList);
+    }
 }
 

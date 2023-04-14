@@ -31,7 +31,7 @@ public class Books {
         return allBooks;
     }
 
-    public static void setAllBooks(int allBooks) {
+    public static void setAllBooks(ArrayList<Books> allBooks) {
         Books.allBooks = allBooks;
     }
 

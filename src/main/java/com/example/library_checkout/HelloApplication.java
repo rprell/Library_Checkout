@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
     }
 
     public void stop ()throws Exception{
- //       myController.saveData();
+        myController.saveData();
     }
 
     public static void main(String[] args) {
