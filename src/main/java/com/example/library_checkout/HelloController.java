@@ -125,8 +125,8 @@ public class HelloController {
     }
 
     public void CheckInButtonPressed() {
-        infoList.getItems().clear();
-        Books.getAllBooks().get(selectedBook).setCheckIn();
+        infoList.getItems().remove(5);
+        Books.getAllBooks().get(selectedBook).setCheckIn(null);
     }
 
 
