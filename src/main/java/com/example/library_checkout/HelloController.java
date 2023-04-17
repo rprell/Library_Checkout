@@ -107,6 +107,9 @@ public class HelloController {
         if (allBooks.get(selectedIndex).getCheckOut() != null) {
             infoList.getItems().add(allBooks.get(selectedIndex).getCheckOut());
         }
+        if (allBooks.get(selectedIndex).getCheckIn() != null) {
+            infoList.getItems().add(allBooks.get(selectedIndex).getCheckIn());
+        }
 
 
         // choosePicture.getSelectionModel().select(currentBook);
@@ -118,13 +121,13 @@ public class HelloController {
         infoList.getItems().add("Check Out" + " - " + toDoDate.toString());
         calendar.setValue(null);
         selectedBook = pagination.getCurrentPageIndex();
-        Books.getAllBooks().get(selectedBook).setCheckOut(toDoDate.toString());
+        Books.getAllBooks().get(selectedBook).setCheckOut("Check Out" + " - " + toDoDate.toString());
        // pagination.getCurrentPageIndex()
         //.setCheckOut(toDoDate);
     }
 
     public void CheckInButtonPressed() {
-        infoList.getItems().remove(5);
+        infoList.getItems().remove(4);
         Books.getAllBooks().get(selectedBook).setCheckIn(null);
     }
 
