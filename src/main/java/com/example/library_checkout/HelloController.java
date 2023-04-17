@@ -27,7 +27,6 @@ public class HelloController {
 
     public void initialize() throws FileNotFoundException {
         restoreOrReadData();
-        Books.readData();
         System.out.println(Books.getAllBooks());
 
         Image image1 = new Image(new FileInputStream(new File("BookCovers/Peter_Rabbit_first_edition_1902a.jpg")));
@@ -134,28 +133,27 @@ public class HelloController {
         FileOutputStream fileOut = new FileOutputStream("SavedBooks");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
-        ArrayList<String> temporaryList = new ArrayList<>(infoList.getItems());
-        out.writeObject(temporaryList);
+        for (Books eachBook: Books.getAllBooks() ) {
+            out.writeObject(eachBook.getCheckOut());
+        }
 
         out.close();
         fileOut.close();
         System.out.println("Saved");
     }
     public void restoreOrReadData() {
+        Books.readData();
         try {
             FileInputStream fileIn = new FileInputStream("SavedBooks");
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            Books.setAllBooks((ArrayList<Books>)in.readObject());
+            for (Books eachBook: Books.getAllBooks() ) {
+                eachBook.setCheckOut(in.readObject().toString());
+            }
             in.close();
             fileIn.close();
         } catch (Exception exception) {
-            Books.readData();
-
         }
 
-        ArrayList<Books> temporaryList = (ArrayList<Books>) Books.getAllBooks();
-        ObservableList temporaryObservableList = FXCollections.observableArrayList(temporaryList);
-        infoList.setItems(temporaryObservableList);
     }
 }
 

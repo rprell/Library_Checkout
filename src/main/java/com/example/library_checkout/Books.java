@@ -2,8 +2,7 @@ package com.example.library_checkout;
 
 import javafx.scene.image.Image;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,7 +25,6 @@ public class Books {
         this.Year = year;
         allBooks.add(this);
     }
-
 
     public static ArrayList<Books> getAllBooks() {
         return allBooks;
