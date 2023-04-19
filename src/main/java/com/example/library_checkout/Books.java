@@ -11,7 +11,6 @@ public class Books {
     public String Name;
     public String Author;
     public String Genre;
-    private Image cover;
     public int Year;
     public Image Image;
     public String CheckOut;
@@ -105,5 +104,25 @@ public class Books {
         } finally {
             if (sc != null) sc.close();
         }
+    }
+
+    public String toString() {
+        String printOutString = "Book: ";
+        printOutString = printOutString + Name + " ";
+        printOutString = printOutString + Author + " ";
+        printOutString = printOutString + Genre + " ";
+        printOutString = printOutString + Year + " ";
+        printOutString = printOutString + Image + " ";
+        if (CheckOut != null) {
+            printOutString = printOutString + CheckOut + " ";
+        } else {
+            printOutString = printOutString + "NOT checked out";
+        }
+        if (CheckIn != null) {
+            printOutString = printOutString + CheckIn + " ";
+        } else {
+            printOutString = printOutString + "NOT checked in";
+        }
+        return printOutString + "\n";
     }
 }

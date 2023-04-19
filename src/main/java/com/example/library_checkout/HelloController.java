@@ -22,8 +22,6 @@ public class HelloController {
     public ImageView bookImage;
     public Button checkOutButton;
     public Button checkInButton;
-    int currentBook;
-    int selectedBook;
 
     public void initialize() throws FileNotFoundException {
         restoreOrReadData();
@@ -67,7 +65,6 @@ public class HelloController {
         bookImage.setImage(image9);
         bookImage.setImage(image10);
 
-        currentBook = 0;
         bookImage.setImage(image1);
         infoList.getItems().add(allBooks.get(0).getName());
         infoList.getItems().add(allBooks.get(0).getAuthor());
@@ -120,15 +117,18 @@ public class HelloController {
         LocalDate toDoDate = calendar.getValue();
         infoList.getItems().add("Check Out" + " - " + toDoDate.toString());
         calendar.setValue(null);
-        selectedBook = pagination.getCurrentPageIndex();
+        int selectedBook = pagination.getCurrentPageIndex();
         Books.getAllBooks().get(selectedBook).setCheckOut("Check Out" + " - " + toDoDate.toString());
        // pagination.getCurrentPageIndex()
         //.setCheckOut(toDoDate);
+        System.out.println(Books.getAllBooks());
     }
 
     public void CheckInButtonPressed() {
         infoList.getItems().remove(4);
-        Books.getAllBooks().get(selectedBook).setCheckIn(null);
+        int selectedBook = pagination.getCurrentPageIndex();
+        Books.getAllBooks().get(selectedBook).setCheckOut(null);
+        System.out.println(Books.getAllBooks());
     }
 
 
@@ -137,7 +137,12 @@ public class HelloController {
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
         for (Books eachBook: Books.getAllBooks() ) {
-            out.writeObject(eachBook.getCheckOut());
+            String isCheckedOut = eachBook.getCheckOut();
+            if (isCheckedOut != null) {
+                out.writeObject(eachBook.getCheckOut());
+            } else {
+                out.writeObject("NOT");
+            }
         }
 
         out.close();
@@ -150,11 +155,15 @@ public class HelloController {
             FileInputStream fileIn = new FileInputStream("SavedBooks");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             for (Books eachBook: Books.getAllBooks() ) {
-                eachBook.setCheckOut(in.readObject().toString());
+                Object eachCheckOut = in.readObject();
+                if (!eachCheckOut.toString().equalsIgnoreCase("NOT")) {
+                    eachBook.setCheckOut(eachCheckOut.toString());
+                }
             }
             in.close();
             fileIn.close();
         } catch (Exception exception) {
+            System.out.println("restore BUG");
         }
 
     }
